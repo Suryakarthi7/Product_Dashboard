@@ -1,25 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { useState, useEffect } from "react";
+import Axios from 'axios';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Pagination from '@mui/material/Pagination';
+import {useNavigate} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './home';
+import Filters from './filter'; 
+import Catagory from './catagory';
+import ProductDetails from './productDetails';
 
 function App() {
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />}/>
+      <Route path='/searchItem' element={<Filters />} />
+      <Route path='/catagory' element={<Catagory />} />
+      <Route path='/ProductDetails' element={<ProductDetails />} /> 
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default App; 
